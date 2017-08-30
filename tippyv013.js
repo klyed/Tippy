@@ -41,11 +41,11 @@ var showlogo;
 var logo;
 var spacer;
 var devmsg;
-var tippyfooter = "<center><sub>🤖 @Tippy - <b>STEEM & SBD Text-to-Tip Bot</b> by @KLYE 🤖<br>( click reply & type @tippy help for commands )</sub></center>";
+var tippyfooter = "<center><sub>🤖 @Tippy - <b>STEEM & SBD Text-to-Tip Service - </b> by @KLYE 🤖<br>( click reply & type @tippy help for commands )</sub></center>";
 var autosaveblock;
 var showtime;
 var jsonMetadata = {
-	"app": "Tippy/0.0.12"
+	"app": "Tippy/0.0.13"
 };
 var protype;
 var profee;
@@ -62,7 +62,8 @@ var totalblocks = 0;
 var totalvote = 0;
 var totalcomment = 0;
 var count = 20;
-var time;
+var logo = "";
+var time = "";
 
 if (showtime == true){
  var tnsecs = new Date().getUTCSeconds();
@@ -77,7 +78,7 @@ if (showtime == true){
 	 tnmins = String("0" + tnmins);
  }
  var tnhours = new Date().getUTCHours();
- var time = tnhours + ":" + tnmins + ":" + tnsecs + " │ ".blue;
+ time = tnhours + ":" + tnmins + ":" + tnsecs + " │ ".blue;
 };//END  if (showtime == true)
 
 // stats
@@ -688,7 +689,7 @@ function blockdatainit() {
 
 				prompt.get([{
 					name: 'asksyncinput',
-					description: "║".blue.dim + ' * SYNC '.white.bold + "|".blue + 'Fetch Blocks Missed While Offline? (enter for true)'.white.dim + '(true or false)',
+					description: "║".blue.dim + ' Fetch Blocks Missed While Offline?'.white.dim + '(true / false)',
 					required: true,
 				//	validator: /t[rue]*|f[alse]?/,
 					default: true
@@ -1978,7 +1979,7 @@ function startstream() {
 							 tnmins = 10;
 						 }
 						 var tnhours = new Date().getUTCHours();
-						 var time = tnhours + ":" + tnmins + ":" + tnsecs + " │ ".blue;
+						  time = tnhours + ":" + tnmins + ":" + tnsecs + " │ ".blue;
 					};//END  if (showtime == true)
 						totalblocks++;
 						safestreamcount++;
@@ -2041,7 +2042,7 @@ function startstream() {
 								tnmins = 10;
 							}
 						  var tnhours = new Date().getUTCHours();
-						  var time = tnhours + ":" + tnmins + ":" + tnsecs + " │ ".blue;
+						   time = tnhours + ":" + tnmins + ":" + tnsecs + " │ ".blue;
 					};//END if (showtime != false)
 						totalblocks++;
 						headstreamblock = newestheadblock;
@@ -2185,7 +2186,7 @@ process.on('SIGINT', function () {
 });
 
 process.on('uncaughtException', function (err) {
-	console.log("Something FUCKED UP BAD");
+	console.log("║".blue + logo + " ERROR".red.bold + " │ ".blue + "Service Encountered an Uncaught Exeption.. Exiting Now!");
 	sleep(1000);
   console.log(err);
 })
