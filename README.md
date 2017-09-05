@@ -1,5 +1,6 @@
 
 Tippy - Full Version - Purposely Leaked to Aide Development!
+<br>
 https://steemit.com/@tippy 
 <br>
 Developed by: @klye - https://steemit.com/@klye  
