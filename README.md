@@ -1,7 +1,8 @@
 
 Tippy - Full Version - Purposely Leaked to Aide Development!
 https://steemit.com/@tippy 
-      Developed by: @klye - https://steemit.com/@klye  
+<br>
+Developed by: @klye - https://steemit.com/@klye  
 Proposed by: @steemitqa - https://steemit.com/@steemitqa   
 An Open Source STEEM Network Text-to-Tip Bot    
 
