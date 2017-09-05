@@ -234,6 +234,34 @@ function profileupdate(protype, profee, problock) {
 	};
 	var profeepercent = parseFloat((1 - profee) * 100).toFixed(2);
 
+	if (protype == "offline") {
+		var tippyofflineprofile = {
+			'profile': {
+				'profile_image': profilepic,
+				'name': 'Tippy ©',
+				'about': 'STEEM Text to Tip Bot 🤖 is Under Development & OFFLINE! Hopefully Will Be Online Soon! 😘 Just the Tip..?',
+				'location': '❌OFFLINE (Coming Soon!)',
+				'website': 'https://steemit.com/@tippy'
+			}
+		};
+		steem.broadcast.accountUpdate(bank, tippy, undefined, undefined, undefined, memopubkey, tippyofflineprofile, function (err, result) {
+			if (err) {
+				console.log("ERROR: Failed to Update Profile")
+				if (debugmode == true) {
+					console.log("║".blue + logo + "~~~DBUG ".magenta.dim + " │ ".blue + err);
+				};
+			};// END if(err)
+			if (result) {
+				console.log("║".blue + logo + " > ".green.bold + "SEND".white.bold.underline + " │ ".blue + "Profile Updated to OFFLINE Mode");
+				console.log("║".blue + logo + " X".red.bold + " EXIT".red.bold.underline + " │ ".blue + "Shutting Down Now, Goodbye!");
+				process.exit();
+				if (debugmode == true) {
+					console.log("║".blue + logo + " ~ DBUG ".magenta.dim + " │ ".blue + "Account Update Broadcast to Network Success!");
+				}; //END if (debugmode == true)
+			} //END if(result)
+		}); // END steem.broadcast.accountUpdate
+	}; //END if(protype == "offline")
+
 	if (protype == "feeupdate") {
 
 		var savefee = {
@@ -286,38 +314,9 @@ function profileupdate(protype, profee, problock) {
 				}; //END debug
 			} //END if(result)
 		}); //END accountUpdate
-	}; //END if feeupdate
-
-	if (protype == "offline") {
-		var tippyofflineprofile = {
-			'profile': {
-				'profile_image': profilepic,
-				'name': 'Tippy ©',
-				'about': 'STEEM Text to Tip Bot 🤖 is Under Development & OFFLINE! Hopefully Will Be Online Soon! 😘 Just the Tip..?',
-				'location': '❌OFFLINE (Coming Soon!)',
-				'website': 'https://steemit.com/@tippy'
-			}
-		};
-		steem.broadcast.accountUpdate(bank, tippy, undefined, undefined, undefined, memopubkey, tippyofflineprofile, function (err, result) {
-			if (err) {
-				console.log("ERROR: Failed to Update Profile")
-				if (debugmode == true) {
-					console.log("║".blue + logo + "~~~DBUG ".magenta.dim + " │ ".blue + err);
-				};
-			};// END if(err)
-			if (result) {
-				console.log("║".blue + logo + " > ".green.bold + "SEND".white.bold.underline + " │ ".blue + "Profile Updated to OFFLINE Mode");
-				console.log("║".blue + logo + " X".red.bold + " EXIT".red.bold.underline + " │ ".blue + "Shutting Down Now, Goodbye!");
-				process.exit();
-				if (debugmode == true) {
-					console.log("║".blue + logo + " ~ DBUG ".magenta.dim + " │ ".blue + "Account Update Broadcast to Network Success!");
-				}; //END if (debugmode == true)
-			} //END if(result)
-		}); // END steem.broadcast.accountUpdate
-	}; //END if(protype == "offline")
+	}; //END feeupdate
 
 	if (protype == "blocksave") {
-
 		profeepercent = parseFloat((1 - profee) * 100).toFixed(2);
 
 		var proupdate = {
@@ -554,7 +553,7 @@ var updatestat = function (stattype, statamount, newfile) {
 				fs.writeFile(__dirname + "/db/stats/" + stattype, JSON.stringify(writestat), function (writestaterr, writestatdata) {
 					if (writestaterr) return console.log('Save error', null);
 
-					console.log("║".blue + logo + " + ".green.bold + "STAT ".cyan.bold.underline + "│".blue + " Stat Increased: " + stattype + " +" + statamount);
+					console.log("║".blue + logo + " + ".green.bold + "STAT".cyan.bold.underline + " │".blue + " Stat Increased: " + stattype + " +" + statamount);
 
 				});
 			};
@@ -936,7 +935,7 @@ function configexists() {
 				setup = false;
 
 			protype = "feeupdate";
-			profileupdate(protype, tipfee);
+			// profileupdate(protype, tipfee);
 
 			// Set the logo on or off here
 			if (showlogo == true) {
@@ -1374,7 +1373,7 @@ var process_comment = function (op, blockprocesscommnum) {
 						"| <center><b>@Tippy Help & Commands</b></center>  |",
 						"|:----:|",
 						"",
-						"| Command |  | Usage | Example |",
+						"| Call |  | Use | Example |",
 						"|:-------:|:--:|:---------------:|:-------------------------------:|",
 						"| tip | -t | Tip a user | @tippy tip klye 1.337 STEEM |",
 						"| powerup | -p | Powerup user | @tippy powerup klye 0.690 STEEM |",
@@ -1388,9 +1387,9 @@ var process_comment = function (op, blockprocesscommnum) {
 						"| <center><b>Admin Commands</b></center>  |",
 						"|:----:|",
 						"",
-						"| <center><b>Call</b></center> | <center><b>Usage</b></center> | <center><b>Example</b></center> |",
+						"| <center><b>Call</b></center> | <center><b>Use</b></center> | <center><b>Example</b></center> |",
 						"|:-------:|:--------------------:|:-------------------------------:|",
-						"| flag | -f | Flag post | @tippy flag |",
+						"| flag | Flag post | @tippy flag |",
 						"| fee | Set Tipping Fee | @tippy fee 1% |",
 						"| service stop | Shuts Down The Service | @tippy service stop |",
 						"| uptime | Display Uptime Info in Console | @tippy uptime on/off |",
@@ -1403,7 +1402,7 @@ var process_comment = function (op, blockprocesscommnum) {
 						"| <center><b>@Tippy Help & Commands</b></center>  |",
 						"|:----:|",
 						"",
-						"| Command |  | Usage | Example |",
+						"| Call |  | Use | Example |",
 						"|:-------:|:--:|:---------------:|:-------------------------------:|",
 						"| tip | -t | Tip a user | @tippy tip klye 1.337 STEEM |",
 						"| powerup | -p | Powerup user | @tippy powerup klye 0.690 STEEM |",
@@ -1533,7 +1532,7 @@ var process_comment = function (op, blockprocesscommnum) {
 
 			//-----  VOTE
 			if (commandparsed.toLowerCase().indexOf("vote") >= 0 || commandparsed.toLowerCase().indexOf("-v") >= 0 ) {
-				var weight = random(10, 10000);
+				var weight = Math.floor(Math.random() * 10000) + 10;
 				console.log("║".blue + logo + " @ ".green.bold + "CALL".white.bold + " │".blue + " VOTE".white.bold + " from @" + parentAuthor + " on Block #" + blockprocesscommnum);
 				qv.enqueue(confirmvote(op["parent_author"], op["parent_permlink"], weight, "vote"));
 			}; //END vote
