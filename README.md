@@ -1,22 +1,17 @@
-========================================================================
-------------------------------------------------------------------------
------ Tippy - Full Version - Purposely Leaked to Aide Development! -----
------ https://steemit.com/@tippy ----- Official Tippy STEEM User.. -----
-------------------------------------------------------------------------
-========================================================================
-------------------------------------------------------------------------
------       Developed by: @klye - https://steemit.com/@klye        -----
------   Proposed by: @steemitqa - https://steemit.com/@steemitqa   -----
-------------------------------------------------------------------------
------          An Open Source STEEM Network Text-to-Tip Bot        -----
-------------------------------------------------------------------------
+
+Tippy - Full Version - Purposely Leaked to Aide Development!
+https://steemit.com/@tippy 
+      Developed by: @klye - https://steemit.com/@klye  
+Proposed by: @steemitqa - https://steemit.com/@steemitqa   
+An Open Source STEEM Network Text-to-Tip Bot    
+
 
 By harnessing the zero fee transactions featured on the STEEM blockchain
 the Tippy project aims to provide an efficient and affordable way to send
 tips without ever having to leave the post or article you're currently on
 
-| <center><b>@Tippy Help & Commands</b></center>  |
-|:----:|
+@Tippy Help & Commands</b></center>
+
 | Command |  | Usage | Example |
 |:-------:|:--:|:---------------:|:-------------------------------:|
 | tip | -t | Tip a user | @tippy tip klye 1.337 STEEM |
