@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Tippy
 
 Developed by: @klye
@@ -41,6 +40,6 @@ tips without ever having to leave the post or article you're currently on
 | service stop | Shuts Down The Service | @tippy service stop |
 | uptime | Display Uptime Info in Console | @tippy uptime on/off |
 | debug | Turns Debug Output On or Off | @tippy debug on/off |
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
+
 
 MORE INFO TO COME
