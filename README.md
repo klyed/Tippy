@@ -31,6 +31,8 @@ tips without ever having to leave the post or article you're currently on
 | vote | -v | Upvote post | @tippy vote |
 | roll | -d | Roll dice | @tippy roll 20 |
 
+Admin Only Commands
+
 | <center><b>Call</b></center> | <center><b>Usage</b></center> | <center><b>Example</b></center> |
 |:-------:|:--------------------:|:-------------------------------:|
 | flag | -f | Flag post | @tippy flag |
