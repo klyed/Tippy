@@ -41,19 +41,11 @@ var showlogo;
 var logo;
 var spacer;
 var devmsg;
-<<<<<<< HEAD
 var tippyfooter = "<center><sub>🤖 @Tippy - <b>STEEM & SBD Text-to-Tip Service - </b> by @KLYE 🤖<br>( click reply & type @tippy help for commands )</sub></center>";
 var autosaveblock;
 var showtime;
 var jsonMetadata = {
 	"app": "Tippy/0.0.13"
-=======
-var tippyfooter = "<center><sub>🤖 @Tippy - <b>STEEM & SBD Text-to-Tip Bot</b> by @KLYE 🤖<br>( click reply & type @tippy help for commands )</sub></center>";
-var autosaveblock;
-var showtime;
-var jsonMetadata = {
-	"app": "Tippy/0.0.12"
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 };
 var protype;
 var profee;
@@ -70,12 +62,8 @@ var totalblocks = 0;
 var totalvote = 0;
 var totalcomment = 0;
 var count = 20;
-<<<<<<< HEAD
 var logo = "";
 var time = "";
-=======
-var time;
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 
 if (showtime == true){
  var tnsecs = new Date().getUTCSeconds();
@@ -90,11 +78,7 @@ if (showtime == true){
 	 tnmins = String("0" + tnmins);
  }
  var tnhours = new Date().getUTCHours();
-<<<<<<< HEAD
  time = tnhours + ":" + tnmins + ":" + tnsecs + " │ ".blue;
-=======
- var time = tnhours + ":" + tnmins + ":" + tnsecs + " │ ".blue;
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 };//END  if (showtime == true)
 
 // stats
@@ -158,13 +142,9 @@ function voteQueue() {
 
 	// enqueue a new thingy
 	voteQueue.prototype.enqueue = function (e) {
-<<<<<<< HEAD
 		if (debugmode == true){
 		console.log("voteQueue enqueue");
 	}
-=======
-		console.log("voteQueue enqueue");
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 		this.elements.push(e);
 	};
 
@@ -248,7 +228,6 @@ var counttime = parseFloat(count + "000");
 // counttime = (count * 1000);
 
 //----- Profile Updater / Stop Script function
-<<<<<<< HEAD
 function profileupdate(protype, profee, problock) {
 	if (debugmode == true) {
 		console.log("║".blue + logo + " ~ DBUG".magenta.dim + " │ ".blue + "function ".magenta.dim + "profileupdate".blue.bold + "(".white.dim + protype + "," + profee + "," + problock + ")".white.dim);
@@ -283,14 +262,6 @@ function profileupdate(protype, profee, problock) {
 		}); // END steem.broadcast.accountUpdate
 	}; //END if(protype == "offline")
 
-=======
-function profileupdate(protype, profee) {
-	if (debugmode == true) {
-		console.log("║".blue + logo + " ~ DBUG".magenta.dim + " │ ".blue + "function ".magenta.dim + "profileupdate".blue.bold + "(".white.dim + protype + "," + profee + ")".white.dim);
-	};
-	var profeepercent = parseFloat((1 - profee) * 100).toFixed(2);
-
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 	if (protype == "feeupdate") {
 
 		var savefee = {
@@ -325,11 +296,7 @@ function profileupdate(protype, profee) {
 				'profile_image': profilepic,
 				'name': 'Tippy ©',
 				'about': 'STEEM Text to Tip Bot 🤖 Type "@' + tippy + ' help" for Commands 🤑 Low ' + profeepercent + '% Tipping Fee! 😘 Just the Tip..?',
-<<<<<<< HEAD
 				'location': '✔️ONLINE (Alpha v0.0.13)',
-=======
-				'location': 'ONLINE (Alpha Testing!)',
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 				'website': 'https://steemit.com/@tippy'
 			}
 		};
@@ -347,7 +314,6 @@ function profileupdate(protype, profee) {
 				}; //END debug
 			} //END if(result)
 		}); //END accountUpdate
-<<<<<<< HEAD
 	}; //END feeupdate
 
 	if (protype == "blocksave") {
@@ -363,21 +329,6 @@ function profileupdate(protype, profee) {
 			}
 		};
 		steem.broadcast.accountUpdate(bank, tippy, undefined, undefined, undefined, memopubkey, proupdate, function (err, result) {
-=======
-	}; //END if feeupdate
-
-	if (protype == "offline") {
-		var tippyofflineprofile = {
-			'profile': {
-				'profile_image': profilepic,
-				'name': 'Tippy ©',
-				'about': 'STEEM Text to Tip Bot 🤖 is Under Development & OFFLINE! Hopefully Will Be Online Soon! 😘 Just the Tip..?',
-				'location': 'OFFLINE (Coming Soon!)',
-				'website': 'https://steemit.com/@tippy'
-			}
-		};
-		steem.broadcast.accountUpdate(bank, tippy, undefined, undefined, undefined, memopubkey, tippyofflineprofile, function (err, result) {
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 			if (err) {
 				console.log("ERROR: Failed to Update Profile")
 				if (debugmode == true) {
@@ -385,7 +336,6 @@ function profileupdate(protype, profee) {
 				};
 			};
 			if (result) {
-<<<<<<< HEAD
 				console.log("║".blue + logo + " > ".green.bold + "SEND".white.bold.underline + " │ ".blue + "Profile on ".white.dim + "@".green + tippy.green.bold + " Updated Last Saved Block to #".white.dim + problock);
 				if (debugmode == true) {
 					console.log("║".blue + logo + " ~ DBUG".magenta.dim + " │ ".blue + "method ".green.dim + "steem.broadcast.account Update was Success!");
@@ -394,17 +344,6 @@ function profileupdate(protype, profee) {
 		}); //END accountUpdate
 	}; //END if blocksave
 
-=======
-				console.log("║".blue + logo + " > ".green.bold + "SEND".white.bold.underline + " │ ".blue + "Profile Updated to OFFLINE Mode");
-				console.log("║".blue + logo + " X".red.bold + " EXIT".red.bold.underline + " │ ".blue + "Shutting Down Now, Goodbye!");
-				process.exit();
-				if (debugmode == true) {
-					console.log("║".blue + logo + " ~ DBUG ".magenta.dim + " │ ".blue + "Account Update Broadcast to Network Success!");
-				};
-			}
-		});
-	};
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 }; //END function profileupdate();
 
 //----- Reply to comment function
@@ -614,11 +553,7 @@ var updatestat = function (stattype, statamount, newfile) {
 				fs.writeFile(__dirname + "/db/stats/" + stattype, JSON.stringify(writestat), function (writestaterr, writestatdata) {
 					if (writestaterr) return console.log('Save error', null);
 
-<<<<<<< HEAD
 					console.log("║".blue + logo + " + ".green.bold + "STAT".cyan.bold.underline + " │".blue + " Stat Increased: " + stattype + " +" + statamount);
-=======
-					console.log("║".blue + logo + " + ".green.bold + "STAT ".cyan.bold.underline + "│".blue + " Stat Increased: " + stattype + " +" + statamount);
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 
 				});
 			};
@@ -694,10 +629,6 @@ var confirmvote = function (parentAuthor, permlink, weight, type) {
 	if (debugmode == true) {
 		console.log("║".blue + logo + " ~ DBUG".magenta.dim + " │ ".blue + "function ".magenta.dim + "confirmvote".blue.bold + "(".white.dim + parentAuthor + "," + permlink + "," + weight + "," + type + ")".white.dim);
 	};
-<<<<<<< HEAD
-=======
-	weight = 999;
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 	steem.broadcast.vote(
 		wif,
 		tippy,
@@ -788,15 +719,9 @@ function blockdatainit() {
 
 				prompt.get([{
 					name: 'asksyncinput',
-<<<<<<< HEAD
 					description: "║".blue.dim + ' Fetch Blocks Missed While Offline?'.white.dim + '(true / false)',
 					required: true,
 				  validator: /t[rue]*|f[alse]?/,
-=======
-					description: "║".blue.dim + ' * SYNC '.white.bold + "|".blue + 'Fetch Blocks Missed While Offline? (enter for true)'.white.dim + '(true or false)',
-					required: true,
-				//	validator: /t[rue]*|f[alse]?/,
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 					default: true
 				}], function (err, result) {
 				//	if (err) {
@@ -865,21 +790,14 @@ function firsttime() {
 		name: 'bankinput',
 		description: "Bot Account Active Private Key?",
 		required: true,
-<<<<<<< HEAD
 		replace: '*',
-=======
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 		hidden: true
 	}, {
 		name: 'wifinput',
 		description: "Bot Account Posting Private Key?",
-<<<<<<< HEAD
 		required: true,
 		replace: '*',
 		hidden: true
-=======
-		required: true
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 	}, {
 		name: 'memopubkeyinput',
 		description: "Bot Account Memo Public Key?",
@@ -897,44 +815,28 @@ function firsttime() {
 		description: 'Enable Developer Mode / Show Warning Footer ( true or false )',
 		required: true,
 		validator: /t[rue]*|f[alse]?/,
-<<<<<<< HEAD
 		warning: 'Must respond true or false!',
-=======
-		warning: 'Must respond true or false',
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 		default: 'false'
 	}, {
 		name: 'debugmodeinput',
 		description: 'Enable Debug Output in Console? ( true or false )',
 		required: true,
 		validator: /t[rue]*|f[alse]?/,
-<<<<<<< HEAD
 		warning: 'Must respond true or false!',
-=======
-		warning: 'Must respond true or false',
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 		default: 'false'
 	}, {
 		name: 'uptimeinfoinput',
 		description: 'Show Uptime Info in Console? ( true or false )',
 		required: true,
 		validator: /t[rue]*|f[alse]?/,
-<<<<<<< HEAD
 		warning: 'Must respond true or false!',
-=======
-		warning: 'Must respond true or false',
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 		default: 'false'
 	}, {
 		name: 'showlogoinput',
 		description: 'Show Logo in Console? ( true or false )',
 		required: true,
 		validator: /t[rue]*|f[alse]?/,
-<<<<<<< HEAD
 		warning: 'Must respond true or false!',
-=======
-		warning: 'Must respond true or false',
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 		default: 'false'
 	}, {
 		name: 'autosaveblockinput',
@@ -945,11 +847,7 @@ function firsttime() {
 		name: 'showtimeinput',
 		description: 'Show Time on Console Output?  ( true or false )',
 		validator: /t[rue]*|f[alse]?/,
-<<<<<<< HEAD
 		warning: 'Must respond true or false!',
-=======
-		warning: 'Must respond true or false',
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 		default: 'false'
 	}, {
 		name: 'ownerinput',
@@ -958,11 +856,7 @@ function firsttime() {
 	}], function (err, result) {
 
 		if (err) {
-<<<<<<< HEAD
 			console.log("ERROR: Something Went Wrong During Config.. Please Restart Service! (ctrl + c to exit)")
-=======
-			console.log("ERROR: Something Went Wrong During Config..")
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 		};
 
 		if (result) {
@@ -1041,11 +935,7 @@ function configexists() {
 				setup = false;
 
 			protype = "feeupdate";
-<<<<<<< HEAD
 			// profileupdate(protype, tipfee);
-=======
-			//profileupdate(protype, tipfee);
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 
 			// Set the logo on or off here
 			if (showlogo == true) {
@@ -1168,10 +1058,7 @@ function saveblockdataheight(blockheight) {
 			console.log("║".blue + logo + " O".red.bold + " DISK".red.bold + " │".blue + " Chain Height Save ERROR!");
 		};
 		console.log("║".blue + logo + " O".green.bold + " DISK".green.bold + " │".blue + " Chain Height Save Succesful!");
-<<<<<<< HEAD
 		profileupdate("blocksave", tipfee, blockheight);
-=======
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 	});
 };
 
@@ -1216,11 +1103,7 @@ var process_comment = function (op, blockprocesscommnum) {
 						protype = "feeupdate";
 						var votetype = "Fee"
 						profileupdate(protype, tipfee);
-<<<<<<< HEAD
 						qv.enqueue(confirmvote(parentAuthor, permlink, 10, votetype));
-=======
-						qv.enqueue(confirmvote(parentAuthor, permlink, 200, votetype));
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 						console.log("║".blue + logo + "**".yellow + "ADMIN".white.bold.underline + " │ ".blue + "@" + author + " Set Tip Fee to " + feepercent + "%");
 					};
 					//Check if new fee is percent
@@ -1233,11 +1116,7 @@ var process_comment = function (op, blockprocesscommnum) {
 						protype = "feeupdate";
 						var votetype = "fee"
 						profileupdate(protype, tipfee);
-<<<<<<< HEAD
 						qv.enqueue(confirmvote(parentAuthor, permlink, 10, votetype));
-=======
-						qv.enqueue(confirmvote(parentAuthor, permlink, 200, votetype));
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 						console.log("║".blue + logo + "**".yellow + "ADMIN".white.bold.underline + " │ ".blue + "@" + author + " Set Tip Fee to " + feepercent + "%");
 					};
 					var cleanedfee = parseFloat(newfee.replace(/\%/g, '').toLowerCase());
@@ -1269,11 +1148,7 @@ var process_comment = function (op, blockprocesscommnum) {
 					showtime = true;
 					console.log("║".blue + logo + "**".yellow + "ADMIN".white.bold.underline + " │ ".blue + "@" + author + " Turned Showtime Mode: On");
 					var votetype = "Showtime On"
-<<<<<<< HEAD
 					qv.enqueue(confirmvote(parentAuthor, permlink, 10, votetype));
-=======
-					qv.enqueue(confirmvote(parentAuthor, permlink, 200, votetype));
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 				};
 
 			};
@@ -1284,11 +1159,7 @@ var process_comment = function (op, blockprocesscommnum) {
 					showtime = false;
 					console.log("║".blue + logo + "**".yellow + "ADMIN".white.bold.underline + " │ ".blue + "@" + author + " Turned Showtime Mode: On");
 					var votetype = "Showtime On"
-<<<<<<< HEAD
 					qv.enqueue(confirmvote(parentAuthor, permlink, 10, votetype));
-=======
-					qv.enqueue(confirmvote(parentAuthor, permlink, 200, votetype));
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 				};
 
 			};
@@ -1299,11 +1170,7 @@ var process_comment = function (op, blockprocesscommnum) {
 					debugmode = true;
 					console.log("║".blue + logo + "**".yellow + "ADMIN".white.bold.underline + " │ ".blue + "@" + author + " Turned Debug Mode: On");
 					var votetype = "Debug On"
-<<<<<<< HEAD
 					qv.enqueue(confirmvote(parentAuthor, permlink, 10, votetype));
-=======
-					qv.enqueue(confirmvote(parentAuthor, permlink, 200, votetype));
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 				};
 
 			};
@@ -1314,11 +1181,7 @@ var process_comment = function (op, blockprocesscommnum) {
 					debugmode = false;
 					console.log("║".blue + logo + "**".yellow + "ADMIN".white.bold.underline + " │ ".blue + "@" + author + " Turned Debug Mode: Off");
 					var votetype = "Debug Off"
-<<<<<<< HEAD
 					qv.enqueue(confirmvote(parentAuthor, permlink, 10, votetype));
-=======
-					qv.enqueue(confirmvote(parentAuthor, permlink, 200, votetype));
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 				};
 
 			};
@@ -1330,11 +1193,7 @@ var process_comment = function (op, blockprocesscommnum) {
 					if (op["author"] == owner) {
 						protype = "offline";
 						console.log("║".blue + logo + "**".yellow + "ADMIN".white.bold.underline + " │ ".blue + "@" + author + " Shutting Down Tipping Engine!");
-<<<<<<< HEAD
 						qv.enqueue(confirmvote(parentAuthor, permlink, 10, votetype));
-=======
-						qv.enqueue(confirmvote(parentAuthor, permlink, 200, votetype));
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 						profileupdate(protype);
 						saveblockdataheight(safestreamblock);
 
@@ -1343,44 +1202,27 @@ var process_comment = function (op, blockprocesscommnum) {
 			}; //END if synced commands
 
 			//-----  Uptimeinfo on
-<<<<<<< HEAD
 			if (commandparsed.toLowerCase().indexOf("uptime on") >= 0) {
-=======
-			if (commandparsed.toLowerCase().indexOf("uptimeinfo on") >= 0) {
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 				if (op["author"] == owner) {
 					uptimeinfo = true;
 					console.log("║".blue + logo + "**".yellow + "ADMIN".white.bold.underline + " │ ".blue + "@" + author + " Turned Uptimeinfo Mode: On");
 					var votetype = "Uptimeinfo On"
-<<<<<<< HEAD
 					qv.enqueue(confirmvote(parentAuthor, permlink, 10, votetype));
-=======
-					qv.enqueue(confirmvote(parentAuthor, permlink, 200, votetype));
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 				};
 
 			};
 
 			//-----  Uptimeinfo off
-<<<<<<< HEAD
 			if (commandparsed.toLowerCase().indexOf("uptime off") >= 0) {
-=======
-			if (commandparsed.toLowerCase().indexOf("uptimeinfo off") >= 0) {
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 				if (op["author"] == owner) {
 					uptimeinfo = false;
 					console.log("║".blue + logo + "**".yellow + "ADMIN".white.bold.underline + " │ ".blue + "@" + author + " Turned Uptimeinfo Mode: Off");
 					var votetype = "Uptimeinfo Off"
-<<<<<<< HEAD
 					qv.enqueue(confirmvote(parentAuthor, permlink, 10, votetype));
-=======
-					qv.enqueue(confirmvote(parentAuthor, permlink, 200, votetype));
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 				};
 
 			};
 
-<<<<<<< HEAD
 			//-----  FLAG
 			if (commandparsed.toLowerCase().indexOf("flag") >= 0 || commandparsed.toLowerCase().indexOf("-f") >= 0 ) {
 			 if (op["author"] == owner) {
@@ -1390,8 +1232,6 @@ var process_comment = function (op, blockprocesscommnum) {
 			 };
 			}; //END FLAG
 
-=======
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 			//-----  POWERUP
 			if (commandparsed.toLowerCase().indexOf("powerup") >= 0 || commandparsed.toLowerCase().indexOf("-p") >= 0 ) {
 				var gifted = commandparsed.split(' ', 4)[1];
@@ -1453,11 +1293,7 @@ var process_comment = function (op, blockprocesscommnum) {
 												console.log("║".blue + logo + " * ".random + "WARN".red.bold + " PowerUp Fee Cannot Be Deducted Due to Tip Size!")
 											};
 											var votetype = "Powerup"
-<<<<<<< HEAD
 											qv.enqueue(confirmvote(parentAuthor, permlink, 10, votetype));
-=======
-											qv.enqueue(confirmvote(parentAuthor, permlink, 200, votetype));
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 											console.log("║".blue + logo + " * ".random + "WIN!".green.bold + " PowerUp Success! " + amount + " " + tipcurrency + " Powerup from @" + parentAuthor + " to @" + cleaned + " Completed!");
 										};
 									});
@@ -1537,11 +1373,7 @@ var process_comment = function (op, blockprocesscommnum) {
 						"| <center><b>@Tippy Help & Commands</b></center>  |",
 						"|:----:|",
 						"",
-<<<<<<< HEAD
 						"| Call |  | Use | Example |",
-=======
-						"| Command |  | Usage | Example |",
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 						"|:-------:|:--:|:---------------:|:-------------------------------:|",
 						"| tip | -t | Tip a user | @tippy tip klye 1.337 STEEM |",
 						"| powerup | -p | Powerup user | @tippy powerup klye 0.690 STEEM |",
@@ -1550,29 +1382,17 @@ var process_comment = function (op, blockprocesscommnum) {
 						"| info | -i | More Info | @tippy info |",
 						"| ping | -o | Check Status | @tippy ping |",
 						"| vote | -v | Upvote post | @tippy vote |",
-<<<<<<< HEAD
-=======
-						"| flag | -f | Flag post | @tippy flag |",
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 						"| roll | -d | Roll dice | @tippy roll 20 |",
 						"",
 						"| <center><b>Admin Commands</b></center>  |",
 						"|:----:|",
 						"",
-<<<<<<< HEAD
 						"| <center><b>Call</b></center> | <center><b>Use</b></center> | <center><b>Example</b></center> |",
 						"|:-------:|:--------------------:|:-------------------------------:|",
 						"| flag | Flag post | @tippy flag |",
 						"| fee | Set Tipping Fee | @tippy fee 1% |",
 						"| service stop | Shuts Down The Service | @tippy service stop |",
 						"| uptime | Display Uptime Info in Console | @tippy uptime on/off |",
-=======
-						"| <center><b>Call</b></center> | <center><b>Usage</b></center> | <center><b>Example</b></center> |",
-						"|:-------:|:--------------------:|:-------------------------------:|",
-						"| fee | Set Tipping Fee | @tippy fee 1% |",
-						"| service stop | Shuts Down The Service | @tippy service stop |",
-						"| uptimeinfo | Display Uptime Info in Console | @tippy uptimeinfo on/off |",
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 						"| debug | Turns Debug Output On or Off | @tippy debug on/off |",
 						"<hr>",
 						tippyfooter
@@ -1582,11 +1402,7 @@ var process_comment = function (op, blockprocesscommnum) {
 						"| <center><b>@Tippy Help & Commands</b></center>  |",
 						"|:----:|",
 						"",
-<<<<<<< HEAD
 						"| Call |  | Use | Example |",
-=======
-						"| Command |  | Usage | Example |",
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 						"|:-------:|:--:|:---------------:|:-------------------------------:|",
 						"| tip | -t | Tip a user | @tippy tip klye 1.337 STEEM |",
 						"| powerup | -p | Powerup user | @tippy powerup klye 0.690 STEEM |",
@@ -1595,10 +1411,6 @@ var process_comment = function (op, blockprocesscommnum) {
 						"| info | -i | More Info | @tippy info |",
 						"| ping | -o | Check Status | @tippy ping |",
 						"| vote | -v | Upvote post | @tippy vote |",
-<<<<<<< HEAD
-=======
-						"| flag | -f | Flag post | @tippy flag |",
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 						"| roll | -d | Roll dice | @tippy roll 20 |",
 						"<hr>",
 						tippyfooter
@@ -1641,86 +1453,50 @@ var process_comment = function (op, blockprocesscommnum) {
 			if (commandparsed.toLowerCase().indexOf("stats") >= 0 || commandparsed.toLowerCase().indexOf("-s") >= 0 ) {
 
 				fs.readFile(__dirname + "/db/stats/" + "infos", function (err, details) {
-<<<<<<< HEAD
 					if (err) { console.log('Infos File Not Found', null) };
-=======
-					if (err) return console.log('Info File Not Found', null);
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 					var infosdata = JSON.parse(details);
 					var infos = infosdata.infos;
 
 					fs.readFile(__dirname + "/db/stats/" + "pings", function (err, details) {
-<<<<<<< HEAD
 						if (err) { console.log('Pings File Not Found', null) };
-=======
-						if (err) return console.log('Ping File Not Found', null);
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 						var pingsdata = JSON.parse(details);
 						var pings = pingsdata.pings;
 
 						fs.readFile(__dirname + "/db/stats/" + "helps", function (err, details) {
-<<<<<<< HEAD
 							if (err) { console.log('Helps File Not Found', null) };
-=======
-							if (err) return console.log('Ping File Not Found', null);
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 							var helpsdata = JSON.parse(details);
 							var helps = helpsdata.helps;
 
 							fs.readFile(__dirname + "/db/stats/" + "balances", function (err, details) {
-<<<<<<< HEAD
 								if (err) { console.log('Balances File Not Found', null) };
-=======
-								if (err) return console.log('Balances File Not Found', null);
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 								var balancesdata = JSON.parse(details);
 								var balances = balancesdata.balances;
 
 								fs.readFile(__dirname + "/db/stats/" + "tips", function (err, details) {
-<<<<<<< HEAD
 									if (err) { console.log('Tips File Not Found', null) };
-=======
-									if (err) return console.log('Balances File Not Found', null);
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 									var tipsdata = JSON.parse(details);
 									var tips = tipsdata.tips;
 
 									fs.readFile(__dirname + "/db/stats/" + "steemtipped", function (err, details) {
-<<<<<<< HEAD
 										if (err) { console.log('Steemtipped File Not Found', null) };
-=======
-										if (err) return console.log('Balances File Not Found', null);
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 										var steemtippeddata = JSON.parse(details);
 										var steemtipped = steemtippeddata.steemtipped;
 										steemtipped = steemtipped.toFixed(3);
 
 										fs.readFile(__dirname + "/db/stats/" + "sbdtipped", function (err, details) {
-<<<<<<< HEAD
 											if (err) { console.log('Sbdtipped File Not Found', null) };
-=======
-											if (err) return console.log('Balances File Not Found', null);
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 											var sbdtippeddata = JSON.parse(details);
 											var sbdtipped = sbdtippeddata.sbdtipped;
 											sbdtipped = sbdtipped.toFixed(3);
 
 											fs.readFile(__dirname + "/db/stats/" + "steemdepo", function (err, details) {
-<<<<<<< HEAD
 												if (err) { console.log('Steemdepo File Not Found', null) };
-=======
-												if (err) return console.log('Balances File Not Found', null);
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 												var steemdepodata = JSON.parse(details);
 												var steemdepo = steemdepodata.steemdepo;
 												steemdepo = steemdepo.toFixed(3);
 
 												fs.readFile(__dirname + "/db/stats/" + "sbddepo", function (err, details) {
-<<<<<<< HEAD
 													if (err) { console.log('Sbddepo File Not Found', null) };
-=======
-													if (err) return console.log('Balances File Not Found', null);
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 													var sbddepodata = JSON.parse(details);
 													var sbddepo = sbddepodata.sbddepo;
 													sbddepo = sbddepo.toFixed(3);
@@ -1756,25 +1532,11 @@ var process_comment = function (op, blockprocesscommnum) {
 
 			//-----  VOTE
 			if (commandparsed.toLowerCase().indexOf("vote") >= 0 || commandparsed.toLowerCase().indexOf("-v") >= 0 ) {
-<<<<<<< HEAD
 				var weight = Math.floor(Math.random() * 10000) + 10;
-=======
-				var weight = 10000;
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 				console.log("║".blue + logo + " @ ".green.bold + "CALL".white.bold + " │".blue + " VOTE".white.bold + " from @" + parentAuthor + " on Block #" + blockprocesscommnum);
 				qv.enqueue(confirmvote(op["parent_author"], op["parent_permlink"], weight, "vote"));
 			}; //END vote
 
-<<<<<<< HEAD
-=======
-			//-----  FLAG
-			if (commandparsed.toLowerCase().indexOf("flag") >= 0 || commandparsed.toLowerCase().indexOf("-f") >= 0 ) {
-				var weight = -10000;
-				console.log("║".blue + logo + " @ ".green.bold + "CALL".white.bold + " │".blue + " FLAG".white.bold + " from @" + parentAuthor + " on Block #" + blockprocesscommnum);
-				qv.enqueue(confirmvote(op["parent_author"], op["parent_permlink"], weight, "flag"));
-			}; //END FLAG
-
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 			//-----  TIP
 			if (commandparsed.toLowerCase().indexOf("tip") >= 0 || commandparsed.toLowerCase().indexOf("-t") >= 0) {
 				//Get & Set Variables From Tip Call
@@ -1838,11 +1600,7 @@ var process_comment = function (op, blockprocesscommnum) {
 									// Send the STEEM Tip to Target User by Broadcasting Transfer
 									qt.enqueue(transfertip(bank, tippy, to, parentAuthor, amountafterfee + " " + tipcurrency, tipcurrency, steemtipmessage, blockprocesscommnum, steembalanceafter));
 									votetype = "STEEM Tip";
-<<<<<<< HEAD
 									qv.enqueue(confirmvote(parentAuthor, permlink, 10, votetype));
-=======
-									qv.enqueue(confirmvote(parentAuthor, permlink, 10000, votetype));
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 									// If This Tip Was Large Enough To Collect Service Fee
 									if (fee > 0) {
 										var steemfeemessage = "@Tippy Fee: " + feepercent + "% 🤖 " + fee + " " + tipcurrency + " 🤖 Paid by @" + parentAuthor;
@@ -1887,11 +1645,7 @@ var process_comment = function (op, blockprocesscommnum) {
 									// Send the STEEM Tip to Target User by Broadcasting Transfer
 									qt.enqueue(transfertip(bank, tippy, to, parentAuthor, amountafterfee + " " + tipcurrency, tipcurrency, steemtipmessage, blockprocesscommnum, sbdbalanceafter));
 									votetype = "STEEM Tip";
-<<<<<<< HEAD
 									qv.enqueue(confirmvote(parentAuthor, permlink, 10, votetype));
-=======
-									qv.enqueue(confirmvote(parentAuthor, permlink, 10000, votetype));
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 									// If Tip collected a fee
 									if (fee > 0) {
 										var steemfeemessage = "🤖 @Tippy Fee: " + feepercent + "% - " + fee + " " + tipcurrency + " - Paid by @" + parentAuthor;
@@ -2193,15 +1947,9 @@ function catchup_block() {
 			if (getNextBlock) {
 				var blocksleftsync = (current_block - last_block);
 				console.log("║".blue + logo + " * ".random + "SYNC".grey.dim + " │".blue + " Get Block #".white + last_block + " /".grey.dim + " #" + current_block + " - ".grey.dim + blocksleftsync + " Left to Sync");
-<<<<<<< HEAD
 				/*if (blocksleftsync > 1000){
 					console.log("Skip maybe?");
 				}*/
-=======
-				if (blocksleftsync > 1000){
-					console.log("Skip maybe?");
-				}
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 				if (debugmode == true) {
 					console.log("║".blue + logo + " ~ DBUG".magenta.dim + " │ ".blue + "getBlock".blue.bold + "(".white.dim + last_block + ")".white.dim + " is Successful!");
 				};
@@ -2266,11 +2014,7 @@ function startstream() {
 							 tnmins = 10;
 						 }
 						 var tnhours = new Date().getUTCHours();
-<<<<<<< HEAD
 						  time = tnhours + ":" + tnmins + ":" + tnsecs + " │ ".blue;
-=======
-						 var time = tnhours + ":" + tnmins + ":" + tnsecs + " │ ".blue;
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 					};//END  if (showtime == true)
 						totalblocks++;
 						safestreamcount++;
@@ -2333,11 +2077,7 @@ function startstream() {
 								tnmins = 10;
 							}
 						  var tnhours = new Date().getUTCHours();
-<<<<<<< HEAD
 						   time = tnhours + ":" + tnmins + ":" + tnsecs + " │ ".blue;
-=======
-						  var time = tnhours + ":" + tnmins + ":" + tnsecs + " │ ".blue;
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 					};//END if (showtime != false)
 						totalblocks++;
 						headstreamblock = newestheadblock;
@@ -2379,11 +2119,7 @@ function startsplash() {
 	if (debugmode == true) {
 		console.log("║".blue + logo + " ~ DBUG".magenta.dim + " │ ".blue + "function ".magenta.dim + "startsplash".blue.bold + "(".white.dim + ")".white.dim);
 	};
-<<<<<<< HEAD
  if (synced == 1) {
-=======
- //if (synced == 1) {
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 		// Show the start page
 		if (logo == true && showtime == true) {
 			console.log("╠".blue + "══════════════╧═══════════════════════════════════════════════════".bold.blue + "╗".blue);
@@ -2401,15 +2137,9 @@ function startsplash() {
 		};
 		//start the block stream scanners
 		startstream();
-<<<<<<< HEAD
  	} else {
  		console.log("something went wrong. Please Restart!");
  	}
-=======
- //	} else {
- //		console.log("something went wrong. Please Restart!");
- //	}
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 };
 
 //----- Number rounding because javascript is a whore with numbers
@@ -2491,11 +2221,7 @@ process.on('SIGINT', function () {
 });
 
 process.on('uncaughtException', function (err) {
-<<<<<<< HEAD
 	console.log("║".blue + logo + " ERROR".red.bold + " │ ".blue + "Service Encountered an Uncaught Exeption.. Exiting Now!");
-=======
-	console.log("Something FUCKED UP BAD");
->>>>>>> 5ee4e811023d0ff53e942d5342aab39488693bc5
 	sleep(1000);
   console.log(err);
 })
