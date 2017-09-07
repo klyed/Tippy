@@ -30,9 +30,7 @@ tips without ever having to leave the post or article you're currently on
 | ping | -o | Check Status | @tippy ping |
 | vote | -v | Upvote post | @tippy vote |
 | roll | -d | Roll dice | @tippy roll 20 |
-<br>
-| <center><b>Admin Commands</b></center>  |
-|:----:|
+
 | <center><b>Call</b></center> | <center><b>Usage</b></center> | <center><b>Example</b></center> |
 |:-------:|:--------------------:|:-------------------------------:|
 | flag | -f | Flag post | @tippy flag |
@@ -40,6 +38,3 @@ tips without ever having to leave the post or article you're currently on
 | service stop | Shuts Down The Service | @tippy service stop |
 | uptime | Display Uptime Info in Console | @tippy uptime on/off |
 | debug | Turns Debug Output On or Off | @tippy debug on/off |
-
-
-MORE INFO TO COME
